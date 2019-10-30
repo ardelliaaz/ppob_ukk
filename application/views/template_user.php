@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Welcome To PPOB Pembayaran</title>
+    <title>Welcome To Pelanggan PPOB</title>
     <!-- Favicon-->
-    <link rel="icon" href="<?php echo base_url() ?>assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="<?=base_url()?>assets/favicon.ico" type="image/x-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
@@ -33,7 +33,23 @@
 </head>
 
 <body class="theme-red">
-    
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="preloader">
+                <div class="spinner-layer pl-red">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+            <p>Please wait...</p>
+        </div>
+    </div>
+    <!-- #END# Page Loader -->
     <!-- Overlay For Sidebars -->
     <div class="overlay"></div>
     <!-- #END# Overlay For Sidebars -->
@@ -54,13 +70,16 @@
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="index.html">ADMIN - PPOB</a>
+                <a class="navbar-brand" href="index.html">PELANGGAN - PPOB</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Call Search -->
                     <li><a href="javascript:void(0);" class="js-search" data-close="true"><i class="material-icons">search</i></a></li>
                     <!-- #END# Call Search -->
+                  
+                   
+                   
                     <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li>
                 </ul>
             </div>
@@ -76,12 +95,13 @@
                     <img src="<?php echo base_url() ?>assets/images/user.png" width="48" height="48" alt="User" />
                 </div>
                 <div class="info-container">
-                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></div>
-                    <div class="email"><?=$this->session->userdata('nama_admin'); ?></div>
+                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?=$this->session->userdata('nama_pelanggan');?> </div>
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
-                            <li><a href="<?php echo base_url('index.php/login/logout'); ?>"><i class="material-icons">input</i>Sign Out</a></li>
+                            <li><a href="javascript:void(0);"><i class="material-icons">person</i>Profile</a></li>
+                           
+                            <li><a href="<?php echo base_url('index.php/login_user/logout'); ?>"><i class="material-icons">input</i>Sign Out</a></li>
                         </ul>
                     </div>
                 </div>
@@ -89,9 +109,6 @@
             <!-- #User Info -->
             <!-- Menu -->
             <div class="menu">
-            <?php
-			    if($this->session->userdata('id_level') ==1) :
-		    ?>
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
                     <li class="active">
@@ -100,52 +117,15 @@
                             <span>Home</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="pages/typography.html">
-                            <i class="material-icons">list</i>
-                            <span>Data Pelanggan</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="pages/typography.html">
-                            <i class="material-icons">assignment_turned_in</i>
-                            <span>Verifikasi dan validasi</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="pages/helper-classes.html">
-                            <i class="material-icons">assignment</i>
-                            <span>Generate Laporan</span>
-                        </a>
-                    </li>
-                    <?php
-			            elseif($this->session->userdata('id_level') ==2) :
-                    ?>
-                    <ul class="list">
-                    <li class="header">MAIN NAVIGATION</li>
-                    <li class="active">
-                        <a href="index.html">
-                            <i class="material-icons">home</i>
-                            <span>Home</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="pages/typography.html">
-                            <i class="material-icons">assignment</i>
-                            <span>Generate Laporan</span>
-                        </a>
-                    </li>
-                   
-                 
-
-                    <?php endif ; ?>
-                
+                       
+                        
+                </ul>
             </div>
-            <!-- #Menu -->
+            <!-- #Menu --> 
             <!-- Footer -->
             <div class="legal">
                 <div class="copyright">
-                    &copy; 2016 - 2017 <a href="javascript:void(0);">AdminBSB - Material Design</a>.
+                    &copy; 2019-2020 <a href="javascript:void(0);">Admin - PPOB</a>.
                 </div>
                 <div class="version">
                     <b>Version: </b> 1.0.5
@@ -153,7 +133,7 @@
             </div>
             <!-- #Footer -->
         </aside>
-        <!-- #END# Left Sidebar -->
+        
     </section>
     <section class="content">
     <?php

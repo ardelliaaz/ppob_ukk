@@ -33,7 +33,7 @@
         </div>
         <div class="card">
             <div class="body">
-                <form action="<?=base_url('index.php/login/cek_login')?>" id="sign_in" method="POST">
+                <form action="<?=base_url('index.php/login_user/cek_login')?>" id="sign_in" method="POST">
                     <div class="msg">Sign in to start your session</div>
                     <div class="input-group">
                         <span class="input-group-addon">
@@ -51,7 +51,11 @@
                             <input type="password" class="form-control" name="password" placeholder="Password" required>
                         </div>
                     </div>
-                   
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <a class="btn btn-block bg-green waves-effect" data-toggle="modal" data-target="#daftar">DAFTAR</a>
+                        </div>
+
                     <div class="col-xs-4">
                             <button class="btn btn-warning bg-warning waves-effect" type="submit">SIGN IN</button>
                         </div>
